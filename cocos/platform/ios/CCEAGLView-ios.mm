@@ -403,108 +403,116 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #pragma mark CCEAGLView - Touch Delegate
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (isKeyboardShown_)
-    {
-        [self handleTouchesAfterKeyboardShow];
-    }
+//    if (isKeyboardShown_)
+//    {
+//        [self handleTouchesAfterKeyboardShow];
+//    }
+//
+//    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
+//    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//
+//    int i = 0;
+//    for (UITouch *touch in touches) {
+//        if (i >= IOS_MAX_TOUCHES_COUNT) {
+//            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
+//            break;
+//        }
+//
+//        ids[i] = touch;
+//        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+//        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+//        ++i;
+//    }
+//
+//    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+//    glview->handleTouchesBegin(i, (intptr_t*)ids, xs, ys);
     
-    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
-    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    
-    int i = 0;
-    for (UITouch *touch in touches) {
-        if (i >= IOS_MAX_TOUCHES_COUNT) {
-            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
-            break;
-        }
-
-        ids[i] = touch;
-        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
-        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
-        ++i;
-    }
-
-    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
-    glview->handleTouchesBegin(i, (intptr_t*)ids, xs, ys);
+    [super touchesBegan:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
-    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    float fs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    float ms[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
+//    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    float fs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    float ms[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//
+//    int i = 0;
+//    for (UITouch *touch in touches) {
+//        if (i >= IOS_MAX_TOUCHES_COUNT) {
+//            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
+//            break;
+//        }
+//
+//        ids[i] = touch;
+//        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+//        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+//#if defined(__IPHONE_9_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0)
+//        // running on iOS 9.0 or higher version
+//        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0f) {
+//            fs[i] = touch.force;
+//            ms[i] = touch.maximumPossibleForce;
+//        }
+//#endif
+//        ++i;
+//    }
+//
+//    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+//    glview->handleTouchesMove(i, (intptr_t*)ids, xs, ys, fs, ms);
     
-    int i = 0;
-    for (UITouch *touch in touches) {
-        if (i >= IOS_MAX_TOUCHES_COUNT) {
-            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
-            break;
-        }
-
-        ids[i] = touch;
-        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
-        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
-#if defined(__IPHONE_9_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0)
-        // running on iOS 9.0 or higher version
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0f) {
-            fs[i] = touch.force;
-            ms[i] = touch.maximumPossibleForce;
-        }
-#endif
-        ++i;
-    }
-
-    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
-    glview->handleTouchesMove(i, (intptr_t*)ids, xs, ys, fs, ms);
+    [super touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
-    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
+//    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//
+//    int i = 0;
+//    for (UITouch *touch in touches) {
+//        if (i >= IOS_MAX_TOUCHES_COUNT) {
+//            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
+//            break;
+//        }
+//
+//        ids[i] = touch;
+//        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+//        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+//        ++i;
+//    }
+//
+//    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+//    glview->handleTouchesEnd(i, (intptr_t*)ids, xs, ys);
     
-    int i = 0;
-    for (UITouch *touch in touches) {
-        if (i >= IOS_MAX_TOUCHES_COUNT) {
-            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
-            break;
-        }
-
-        ids[i] = touch;
-        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
-        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
-        ++i;
-    }
-
-    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
-    glview->handleTouchesEnd(i, (intptr_t*)ids, xs, ys);
+    [super touchesEnded:touches withEvent:event];
 }
     
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
-    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
+//    float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//    float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
+//
+//    int i = 0;
+//    for (UITouch *touch in touches) {
+//        if (i >= IOS_MAX_TOUCHES_COUNT) {
+//            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
+//            break;
+//        }
+//
+//        ids[i] = touch;
+//        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+//        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+//        ++i;
+//    }
+//
+//    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+//    glview->handleTouchesCancel(i, (intptr_t*)ids, xs, ys);
     
-    int i = 0;
-    for (UITouch *touch in touches) {
-        if (i >= IOS_MAX_TOUCHES_COUNT) {
-            CCLOG("warning: touches more than 10, should adjust IOS_MAX_TOUCHES_COUNT");
-            break;
-        }
-        
-        ids[i] = touch;
-        xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
-        ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
-        ++i;
-    }
-
-    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
-    glview->handleTouchesCancel(i, (intptr_t*)ids, xs, ys);
+    [super touchesCancelled:touches withEvent:event];
 }
 
 #pragma mark - UIView - Responder
